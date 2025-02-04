@@ -22,13 +22,18 @@ void initialize_all_leds()
     gpio_set_dir(GREEN_PIN, GPIO_OUT);
 }
 
-// Função de callback para o temporizador periódico
-bool repeating_timer_callback(struct repeating_timer *t)
+// Função para desligar todos os LEDs
+void turn_off_leds()
 {
-    // Desliga todos os LEDs
     gpio_put(RED_PIN, 0);
     gpio_put(YELLOW_PIN, 0);
     gpio_put(GREEN_PIN, 0);
+}
+
+// Função de callback para o temporizador periódico
+bool repeating_timer_callback(struct repeating_timer *t)
+{
+    turn_off_leds(); // Desliga os LEDs
 
     // Atualiza o estado do semáforo
     switch (led_state)
