@@ -43,9 +43,9 @@ bool repeating_timer_callback(struct repeating_timer *t)
         led_state = 1;
         break;
     case 1:
-        /*Obs: Tenho o conhecimento de que, na placa BitDogLab, para exibir a cor amarela,
+        /* Obs: Tenho o conhecimento de que, na placa BitDogLab, para exibir a cor amarela,
         é necessário ligar os leds verde e vermelho ao mesmo tempo. Para mérito de implementação
-        básica, deixei apenas a implementação necessária para rodar no Wokwi.*/
+        básica, deixei apenas a implementação necessária para rodar no Wokwi. */
         gpio_put(YELLOW_PIN, 1);
         led_state = 2;
         break;
