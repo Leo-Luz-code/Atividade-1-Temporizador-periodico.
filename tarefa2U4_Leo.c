@@ -59,9 +59,17 @@ int main()
 {
     stdio_init_all();
 
+    initialize_all_leds();
+
+    printf("Semáforo inicializado\n");
+
+    struct repeating_timer timer;
+    add_repeating_timer_ms(3000, repeating_timer_callback, NULL, &timer); // Temporizador para o semáforo
+
+    // Loop principal para imprimir mensagens a cada segundo
     while (true)
     {
-        printf("Hello, world!\n");
+        printf("Tempo atual: %lld ms\n", time_us_64() / 1000);
         sleep_ms(1000);
     }
 }
